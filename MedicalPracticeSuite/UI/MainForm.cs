@@ -181,6 +181,107 @@ namespace MedicalPracticeSuite
             ExecuteSearch();
         }
         #endregion
+        #region Doctors Ribbon Events
+        /// <summary>
+        /// Doctor Add New
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (var form = new DoctorForm("add"))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    doctorsControl.LoadDoctorData();
+                }
+            }
+        }
+        /// <summary>
+        /// Doctor Edit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var selectedRows = doctorsControl.GetSelectedDoctorRows();
+
+            if (selectedRows.Length == 1)
+            {
+                int rowHandle = selectedRows[0];
+                var doctor = doctorsControl.GetDoctorByRowHandle(rowHandle);
+                using (var form = new DoctorForm("edit", doctor))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        doctorsControl.LoadDoctorData();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single doctor to edit.", "Edit Patient", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        /// <summary>
+        /// Doctor Delete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var selectedRows = doctorsControl.GetSelectedDoctorRows();
+            if (selectedRows.Length == 1)
+            {
+                int rowHandle = selectedRows[0];
+                var doctor = doctorsControl.GetDoctorByRowHandle(rowHandle);
+                if (doctor == null)
+                    return;
+                var result = MessageBox.Show(
+                    $"Are you sure you want to delete doctor '{doctor.Name}'?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var doctorService = new DoctorService();
+                        doctorService.Remove(doctor.Id);
+
+                        doctorsControl.LoadDoctorData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to delete doctor: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single doctor to delete.", "Delete Doctor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        /// <summary>
+        /// Doctor Refresh
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            doctorsControl.LoadDoctorData();
+        }
+        /// <summary>
+        /// Doctor Search
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barEditItem2_EditValueChanged(object sender, EventArgs e)
+        {
+            ExecuteSearch();
+        }
+        #endregion
         #region Gerneral
         /// <summary>
         /// Search Execution
@@ -199,9 +300,19 @@ namespace MedicalPracticeSuite
                     patientsControl.LoadPatientData(); 
                 }
             }
+            else if (ribbonControl1.SelectedPage.Text == "Doctors")
+            {
+                if (this.barEditItem2 != null)
+                {
+                    string searchTerm = this.barEditItem2.EditValue?.ToString();
+                    doctorsControl.LoadDoctorData(searchTerm);
+                }
+                else
+                {
+                    doctorsControl.LoadDoctorData();
+                }
+            }
         }
-
         #endregion
-        
     }
 }
