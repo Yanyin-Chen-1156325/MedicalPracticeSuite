@@ -1,6 +1,9 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraScheduler;
+using MedicalPracticeSuite.Data;
+using MedicalPracticeSuite.Services;
+using MedicalPracticeSuite.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +77,90 @@ namespace MedicalPracticeSuite
             }
         }
 
+        #region Patients Ribbon Events
+        /// <summary>
+        /// Patient Add New
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (var form = new PatientForm("add"))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    patientsControl.LoadPatientData();
+                }
+            }
+        }
+        /// <summary>
+        /// Patient Edit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var selectedRows = patientsControl.GetSelectedPatientRows();
+
+            if (selectedRows.Length == 1)
+            {
+                int rowHandle = selectedRows[0];
+                var patient = patientsControl.GetPatientByRowHandle(rowHandle);
+                using (var form = new PatientForm("edit", patient))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        patientsControl.LoadPatientData();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single patient to edit.", "Edit Patient", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+        /// <summary>
+        /// Patient Delete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var selectedRows = patientsControl.GetSelectedPatientRows();
+
+            if (selectedRows.Length == 1)
+            {
+                int rowHandle = selectedRows[0];
+                var patient = patientsControl.GetPatientByRowHandle(rowHandle);
+                if (patient == null)
+                    return;
+                var result = MessageBox.Show(
+                    $"Are you sure you want to delete patient '{patient.Name}'?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var patientService = new PatientService();
+                        patientService.Remove(patient.Id);
+
+                        patientsControl.LoadPatientData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to delete patient: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single patient to delete.", "Delete Patient", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         /// <summary>
         /// Patient Refresh
         /// </summary>
@@ -93,7 +180,7 @@ namespace MedicalPracticeSuite
         {
             ExecuteSearch();
         }
-
+        #endregion
         #region Gerneral
         /// <summary>
         /// Search Execution
@@ -113,6 +200,8 @@ namespace MedicalPracticeSuite
                 }
             }
         }
+
         #endregion
+        
     }
 }

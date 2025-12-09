@@ -18,7 +18,10 @@ namespace MedicalPracticeSuite.Services
 
         public List<Patient> GetAll()
         {
-            return context.Patients.ToList();
+            using (var context = new MedicalContext())
+            {
+                return context.Patients.AsNoTracking().ToList();
+            }
         }
 
         public List<Data.Patient> Search(string searchTerm)
@@ -55,5 +58,23 @@ namespace MedicalPracticeSuite.Services
                 context.SaveChanges();
             }
         }
+
+        public void Update(Patient patient)
+        {
+            var existingPatient = context.Patients.FirstOrDefault(p => p.Id == patient.Id);
+            if (existingPatient != null)
+            {
+                existingPatient.Name = patient.Name;
+                existingPatient.Phone = patient.Phone;
+                existingPatient.Email = patient.Email;
+                existingPatient.DateOfBirth = patient.DateOfBirth;
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Patient not found.");
+            }
+        }
+
     }
 }
