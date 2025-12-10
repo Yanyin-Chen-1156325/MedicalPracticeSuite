@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,9 @@ namespace MedicalPracticeSuite
             InitializeComponent();
             // Apply dark theme
             UserLookAndFeel.Default.SetSkinStyle("Office 2019 Black");
+            // Prevent direct editing of appointments in SchedulerControl
+            schedulerControl1.OptionsCustomization.AllowAppointmentEdit = DevExpress.XtraScheduler.UsedAppointmentType.Custom;
+            schedulerControl1.EditAppointmentFormShowing += SchedulerControl1_EditAppointmentFormShowing;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -75,6 +79,13 @@ namespace MedicalPracticeSuite
                 schedulerControl1.Dock = DockStyle.Fill;
                 mainPanel.Controls.Add(schedulerControl1);
             }
+
+            // Scheduler
+            var appointmentService = new AppointmentService();
+            var appointments = appointmentService.GetAll();
+
+            LoadAppointmentsToScheduler(appointments);
+            schedulerControl1.Start = DateTime.Today;
         }
 
         #region Patients Ribbon Events
@@ -312,6 +323,37 @@ namespace MedicalPracticeSuite
                     doctorsControl.LoadDoctorData();
                 }
             }
+        }
+
+        private void LoadAppointmentsToScheduler(List<Data.Appointment> appointments)
+        {
+            schedulerDataStorage1.Appointments.Clear();
+
+            foreach (var appt in appointments)
+            {
+                var schedAppt = schedulerDataStorage1.CreateAppointment(AppointmentType.Normal);
+
+                schedAppt.Subject = $"{appt.Patient.Name} with {appt.Doctor.Name}";
+                schedAppt.Start = appt.StartTime;
+                schedAppt.End = appt.EndTime;
+                schedAppt.CustomFields["Notes"] = appt.Notes;
+                schedAppt.Description = appt.Notes;
+
+                schedulerDataStorage1.Appointments.Add(schedAppt);
+            }
+        }
+        /// <summary>
+        /// Prevent Default Appointment Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SchedulerControl1_EditAppointmentFormShowing(object sender, DevExpress.XtraScheduler.AppointmentFormEventArgs e)
+        {
+            e.Handled = true;
+
+            // 之後才是您客製化表單的邏輯：
+            // MyCustomAppointmentForm customForm = new MyCustomAppointmentForm(schedulerControl1, e.Appointment);
+            // customForm.ShowDialog();
         }
         #endregion
     }

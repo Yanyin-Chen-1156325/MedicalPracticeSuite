@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -51,6 +51,21 @@
             this.repositoryItemSearchControl1 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemSearchControl2 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
+            this.editAppointmentQueryItem1 = new DevExpress.XtraScheduler.UI.EditAppointmentQueryItem();
+            this.editOccurrenceUICommandItem1 = new DevExpress.XtraScheduler.UI.EditOccurrenceUICommandItem();
+            this.editSeriesUICommandItem1 = new DevExpress.XtraScheduler.UI.EditSeriesUICommandItem();
+            this.deleteAppointmentsItem1 = new DevExpress.XtraScheduler.UI.DeleteAppointmentsItem();
+            this.deleteOccurrenceItem1 = new DevExpress.XtraScheduler.UI.DeleteOccurrenceItem();
+            this.deleteSeriesItem1 = new DevExpress.XtraScheduler.UI.DeleteSeriesItem();
+            this.splitAppointmentItem1 = new DevExpress.XtraScheduler.UI.SplitAppointmentItem();
+            this.changeAppointmentStatusItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentStatusItem();
+            this.changeAppointmentLabelItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentLabelItem();
+            this.toggleRecurrenceItem1 = new DevExpress.XtraScheduler.UI.ToggleRecurrenceItem();
+            this.changeAppointmentReminderItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentReminderItem();
+            this.repositoryItemDuration1 = new DevExpress.XtraScheduler.UI.RepositoryItemDuration();
+            this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
+            this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.ribbonHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPatients = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -71,37 +86,22 @@
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.dateNavigator1 = new DevExpress.XtraScheduler.DateNavigator();
             this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController(this.components);
-            this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
-            this.editOccurrenceUICommandItem1 = new DevExpress.XtraScheduler.UI.EditOccurrenceUICommandItem();
-            this.editSeriesUICommandItem1 = new DevExpress.XtraScheduler.UI.EditSeriesUICommandItem();
-            this.editAppointmentQueryItem1 = new DevExpress.XtraScheduler.UI.EditAppointmentQueryItem();
-            this.deleteOccurrenceItem1 = new DevExpress.XtraScheduler.UI.DeleteOccurrenceItem();
-            this.deleteSeriesItem1 = new DevExpress.XtraScheduler.UI.DeleteSeriesItem();
-            this.deleteAppointmentsItem1 = new DevExpress.XtraScheduler.UI.DeleteAppointmentsItem();
-            this.splitAppointmentItem1 = new DevExpress.XtraScheduler.UI.SplitAppointmentItem();
-            this.changeAppointmentStatusItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentStatusItem();
-            this.changeAppointmentLabelItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentLabelItem();
-            this.toggleRecurrenceItem1 = new DevExpress.XtraScheduler.UI.ToggleRecurrenceItem();
-            this.changeAppointmentReminderItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentReminderItem();
-            this.repositoryItemDuration1 = new DevExpress.XtraScheduler.UI.RepositoryItemDuration();
             this.optionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup();
             this.actionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
-            this.dateNavigator1 = new DevExpress.XtraScheduler.DateNavigator();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.mainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -289,6 +289,130 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.repositoryItemSearchControl2.Name = "repositoryItemSearchControl2";
             // 
+            // editAppointmentQueryItem1
+            // 
+            this.editAppointmentQueryItem1.Id = 20;
+            this.editAppointmentQueryItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.editOccurrenceUICommandItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.editSeriesUICommandItem1)});
+            this.editAppointmentQueryItem1.Name = "editAppointmentQueryItem1";
+            this.editAppointmentQueryItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // editOccurrenceUICommandItem1
+            // 
+            this.editOccurrenceUICommandItem1.Id = 21;
+            this.editOccurrenceUICommandItem1.Name = "editOccurrenceUICommandItem1";
+            // 
+            // editSeriesUICommandItem1
+            // 
+            this.editSeriesUICommandItem1.Id = 22;
+            this.editSeriesUICommandItem1.Name = "editSeriesUICommandItem1";
+            // 
+            // deleteAppointmentsItem1
+            // 
+            this.deleteAppointmentsItem1.Id = 23;
+            this.deleteAppointmentsItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.deleteOccurrenceItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.deleteSeriesItem1)});
+            this.deleteAppointmentsItem1.Name = "deleteAppointmentsItem1";
+            this.deleteAppointmentsItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // deleteOccurrenceItem1
+            // 
+            this.deleteOccurrenceItem1.Id = 24;
+            this.deleteOccurrenceItem1.Name = "deleteOccurrenceItem1";
+            // 
+            // deleteSeriesItem1
+            // 
+            this.deleteSeriesItem1.Id = 25;
+            this.deleteSeriesItem1.Name = "deleteSeriesItem1";
+            // 
+            // splitAppointmentItem1
+            // 
+            this.splitAppointmentItem1.Id = 26;
+            this.splitAppointmentItem1.Name = "splitAppointmentItem1";
+            // 
+            // changeAppointmentStatusItem1
+            // 
+            this.changeAppointmentStatusItem1.Id = 27;
+            this.changeAppointmentStatusItem1.Name = "changeAppointmentStatusItem1";
+            // 
+            // changeAppointmentLabelItem1
+            // 
+            this.changeAppointmentLabelItem1.Id = 28;
+            this.changeAppointmentLabelItem1.Name = "changeAppointmentLabelItem1";
+            // 
+            // toggleRecurrenceItem1
+            // 
+            this.toggleRecurrenceItem1.Id = 29;
+            this.toggleRecurrenceItem1.Name = "toggleRecurrenceItem1";
+            // 
+            // changeAppointmentReminderItem1
+            // 
+            this.changeAppointmentReminderItem1.Edit = this.repositoryItemDuration1;
+            this.changeAppointmentReminderItem1.Id = 30;
+            this.changeAppointmentReminderItem1.Name = "changeAppointmentReminderItem1";
+            // 
+            // repositoryItemDuration1
+            // 
+            this.repositoryItemDuration1.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.repositoryItemDuration1.AutoHeight = false;
+            this.repositoryItemDuration1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDuration1.Name = "repositoryItemDuration1";
+            this.repositoryItemDuration1.ShowEmptyItem = true;
+            this.repositoryItemDuration1.ValidateOnEnterKey = true;
+            // 
+            // calendarToolsRibbonPageCategory1
+            // 
+            this.calendarToolsRibbonPageCategory1.Control = this.schedulerControl1;
+            this.calendarToolsRibbonPageCategory1.Name = "calendarToolsRibbonPageCategory1";
+            this.calendarToolsRibbonPageCategory1.Visible = false;
+            // 
+            // schedulerControl1
+            // 
+            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
+            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
+            this.schedulerControl1.MenuManager = this.ribbonControl1;
+            this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.Size = new System.Drawing.Size(688, 482);
+            this.schedulerControl1.Start = new System.DateTime(2025, 11, 28, 0, 0, 0, 0);
+            this.schedulerControl1.TabIndex = 2;
+            this.schedulerControl1.Text = "schedulerControl1";
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler4);
+            this.schedulerControl1.Views.FullWeekView.Enabled = true;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
+            this.schedulerControl1.Views.WeekView.Enabled = false;
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            this.schedulerControl1.Views.YearView.UseOptimizedScrolling = false;
+            // 
+            // schedulerDataStorage1
+            // 
+            // 
+            // 
+            // 
+            this.schedulerDataStorage1.AppointmentDependencies.AutoReload = false;
+            // 
+            // 
+            // 
+            this.schedulerDataStorage1.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("DoctorId", "DoctorId"));
+            this.schedulerDataStorage1.Appointments.CustomFieldMappings.Add(new DevExpress.XtraScheduler.AppointmentCustomFieldMapping("PatientId", "PatientId"));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(0, "None", "&None", System.Drawing.SystemColors.Window);
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(1, "Important", "&Important", System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(190))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(2, "Business", "&Business", System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(213)))), ((int)(((byte)(255))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(3, "Personal", "&Personal", System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(244)))), ((int)(((byte)(156))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(4, "Vacation", "&Vacation", System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(228)))), ((int)(((byte)(199))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(5, "Must Attend", "Must &Attend", System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(206)))), ((int)(((byte)(147))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(6, "Travel Required", "&Travel Required", System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(244)))), ((int)(((byte)(255))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(7, "Needs Preparation", "&Needs Preparation", System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(219)))), ((int)(((byte)(152))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(8, "Birthday", "&Birthday", System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(207)))), ((int)(((byte)(233))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(9, "Anniversary", "&Anniversary", System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(233)))), ((int)(((byte)(223))))));
+            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(10, "Phone Call", "Phone &Call", System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(165))))));
+            this.schedulerDataStorage1.Appointments.Mappings.Description = "Notes";
+            this.schedulerDataStorage1.Appointments.Mappings.End = "EndTime";
+            this.schedulerDataStorage1.Appointments.Mappings.Start = "StartTime";
+            // 
             // ribbonHome
             // 
             this.ribbonHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -413,27 +537,6 @@
             this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem15);
             this.ribbonPageGroup16.Name = "ribbonPageGroup16";
             // 
-            // schedulerDataStorage1
-            // 
-            // 
-            // 
-            // 
-            this.schedulerDataStorage1.AppointmentDependencies.AutoReload = false;
-            // 
-            // 
-            // 
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(0, "None", "&None", System.Drawing.SystemColors.Window);
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(1, "Important", "&Important", System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(190))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(2, "Business", "&Business", System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(213)))), ((int)(((byte)(255))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(3, "Personal", "&Personal", System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(244)))), ((int)(((byte)(156))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(4, "Vacation", "&Vacation", System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(228)))), ((int)(((byte)(199))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(5, "Must Attend", "Must &Attend", System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(206)))), ((int)(((byte)(147))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(6, "Travel Required", "&Travel Required", System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(244)))), ((int)(((byte)(255))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(7, "Needs Preparation", "&Needs Preparation", System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(219)))), ((int)(((byte)(152))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(8, "Birthday", "&Birthday", System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(207)))), ((int)(((byte)(233))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(9, "Anniversary", "&Anniversary", System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(233)))), ((int)(((byte)(223))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(10, "Phone Call", "Phone &Call", System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(165))))));
-            // 
             // mainPanel
             // 
             this.mainPanel.Controls.Add(this.dateNavigator1);
@@ -443,123 +546,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1029, 482);
             this.mainPanel.TabIndex = 5;
-            // 
-            // schedulerBarController1
-            // 
-            this.schedulerBarController1.BarItems.Add(this.editOccurrenceUICommandItem1);
-            this.schedulerBarController1.BarItems.Add(this.editSeriesUICommandItem1);
-            this.schedulerBarController1.BarItems.Add(this.editAppointmentQueryItem1);
-            this.schedulerBarController1.BarItems.Add(this.deleteOccurrenceItem1);
-            this.schedulerBarController1.BarItems.Add(this.deleteSeriesItem1);
-            this.schedulerBarController1.BarItems.Add(this.deleteAppointmentsItem1);
-            this.schedulerBarController1.BarItems.Add(this.splitAppointmentItem1);
-            this.schedulerBarController1.BarItems.Add(this.changeAppointmentStatusItem1);
-            this.schedulerBarController1.BarItems.Add(this.changeAppointmentLabelItem1);
-            this.schedulerBarController1.BarItems.Add(this.toggleRecurrenceItem1);
-            this.schedulerBarController1.BarItems.Add(this.changeAppointmentReminderItem1);
-            this.schedulerBarController1.Control = this.schedulerControl1;
-            // 
-            // calendarToolsRibbonPageCategory1
-            // 
-            this.calendarToolsRibbonPageCategory1.Control = this.schedulerControl1;
-            this.calendarToolsRibbonPageCategory1.Name = "calendarToolsRibbonPageCategory1";
-            this.calendarToolsRibbonPageCategory1.Visible = false;
-            // 
-            // editOccurrenceUICommandItem1
-            // 
-            this.editOccurrenceUICommandItem1.Id = 21;
-            this.editOccurrenceUICommandItem1.Name = "editOccurrenceUICommandItem1";
-            // 
-            // editSeriesUICommandItem1
-            // 
-            this.editSeriesUICommandItem1.Id = 22;
-            this.editSeriesUICommandItem1.Name = "editSeriesUICommandItem1";
-            // 
-            // editAppointmentQueryItem1
-            // 
-            this.editAppointmentQueryItem1.Id = 20;
-            this.editAppointmentQueryItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.editOccurrenceUICommandItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.editSeriesUICommandItem1)});
-            this.editAppointmentQueryItem1.Name = "editAppointmentQueryItem1";
-            this.editAppointmentQueryItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // deleteOccurrenceItem1
-            // 
-            this.deleteOccurrenceItem1.Id = 24;
-            this.deleteOccurrenceItem1.Name = "deleteOccurrenceItem1";
-            // 
-            // deleteSeriesItem1
-            // 
-            this.deleteSeriesItem1.Id = 25;
-            this.deleteSeriesItem1.Name = "deleteSeriesItem1";
-            // 
-            // deleteAppointmentsItem1
-            // 
-            this.deleteAppointmentsItem1.Id = 23;
-            this.deleteAppointmentsItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.deleteOccurrenceItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.deleteSeriesItem1)});
-            this.deleteAppointmentsItem1.Name = "deleteAppointmentsItem1";
-            this.deleteAppointmentsItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // splitAppointmentItem1
-            // 
-            this.splitAppointmentItem1.Caption = "Split";
-            this.splitAppointmentItem1.Id = 26;
-            this.splitAppointmentItem1.Name = "splitAppointmentItem1";
-            // 
-            // changeAppointmentStatusItem1
-            // 
-            this.changeAppointmentStatusItem1.Caption = "&Show Time As";
-            this.changeAppointmentStatusItem1.Id = 27;
-            this.changeAppointmentStatusItem1.Name = "changeAppointmentStatusItem1";
-            // 
-            // changeAppointmentLabelItem1
-            // 
-            this.changeAppointmentLabelItem1.Caption = "&Label As";
-            this.changeAppointmentLabelItem1.Id = 28;
-            this.changeAppointmentLabelItem1.Name = "changeAppointmentLabelItem1";
-            // 
-            // toggleRecurrenceItem1
-            // 
-            this.toggleRecurrenceItem1.Caption = "Recurrence";
-            this.toggleRecurrenceItem1.Id = 29;
-            this.toggleRecurrenceItem1.Name = "toggleRecurrenceItem1";
-            // 
-            // changeAppointmentReminderItem1
-            // 
-            this.changeAppointmentReminderItem1.Edit = this.repositoryItemDuration1;
-            this.changeAppointmentReminderItem1.Id = 30;
-            this.changeAppointmentReminderItem1.Name = "changeAppointmentReminderItem1";
-            // 
-            // repositoryItemDuration1
-            // 
-            this.repositoryItemDuration1.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.repositoryItemDuration1.AutoHeight = false;
-            this.repositoryItemDuration1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDuration1.Name = "repositoryItemDuration1";
-            this.repositoryItemDuration1.ShowEmptyItem = true;
-            this.repositoryItemDuration1.ValidateOnEnterKey = true;
-            // 
-            // optionsRibbonPageGroup1
-            // 
-            this.optionsRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.optionsRibbonPageGroup1.Name = "optionsRibbonPageGroup1";
-            // 
-            // actionsRibbonPageGroup1
-            // 
-            this.actionsRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
-            this.actionsRibbonPageGroup1.Name = "actionsRibbonPageGroup1";
-            // 
-            // appointmentRibbonPage1
-            // 
-            this.appointmentRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.actionsRibbonPageGroup1,
-            this.optionsRibbonPageGroup1});
-            this.appointmentRibbonPage1.Name = "appointmentRibbonPage1";
-            this.appointmentRibbonPage1.Visible = false;
             // 
             // dateNavigator1
             // 
@@ -579,23 +565,40 @@
             this.dateNavigator1.Size = new System.Drawing.Size(346, 482);
             this.dateNavigator1.TabIndex = 3;
             // 
-            // schedulerControl1
+            // schedulerBarController1
             // 
-            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
-            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
-            this.schedulerControl1.MenuManager = this.ribbonControl1;
-            this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(688, 482);
-            this.schedulerControl1.Start = new System.DateTime(2025, 11, 28, 0, 0, 0, 0);
-            this.schedulerControl1.TabIndex = 2;
-            this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.WeekView.Enabled = false;
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
-            this.schedulerControl1.Views.YearView.UseOptimizedScrolling = false;
+            this.schedulerBarController1.BarItems.Add(this.editOccurrenceUICommandItem1);
+            this.schedulerBarController1.BarItems.Add(this.editSeriesUICommandItem1);
+            this.schedulerBarController1.BarItems.Add(this.editAppointmentQueryItem1);
+            this.schedulerBarController1.BarItems.Add(this.deleteOccurrenceItem1);
+            this.schedulerBarController1.BarItems.Add(this.deleteSeriesItem1);
+            this.schedulerBarController1.BarItems.Add(this.deleteAppointmentsItem1);
+            this.schedulerBarController1.BarItems.Add(this.splitAppointmentItem1);
+            this.schedulerBarController1.BarItems.Add(this.changeAppointmentStatusItem1);
+            this.schedulerBarController1.BarItems.Add(this.changeAppointmentLabelItem1);
+            this.schedulerBarController1.BarItems.Add(this.toggleRecurrenceItem1);
+            this.schedulerBarController1.BarItems.Add(this.changeAppointmentReminderItem1);
+            this.schedulerBarController1.Control = this.schedulerControl1;
+            // 
+            // optionsRibbonPageGroup1
+            // 
+            this.optionsRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.optionsRibbonPageGroup1.Name = "optionsRibbonPageGroup1";
+            this.optionsRibbonPageGroup1.Text = "";
+            // 
+            // actionsRibbonPageGroup1
+            // 
+            this.actionsRibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.False;
+            this.actionsRibbonPageGroup1.Name = "actionsRibbonPageGroup1";
+            this.actionsRibbonPageGroup1.Text = "";
+            // 
+            // appointmentRibbonPage1
+            // 
+            this.appointmentRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.actionsRibbonPageGroup1,
+            this.optionsRibbonPageGroup1});
+            this.appointmentRibbonPage1.Name = "appointmentRibbonPage1";
+            this.appointmentRibbonPage1.Visible = false;
             // 
             // MainForm
             // 
@@ -610,13 +613,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             this.mainPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNavigator1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -627,7 +630,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPatients;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerDataStorage1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
@@ -683,6 +685,7 @@
         private DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup optionsRibbonPageGroup1;
         private DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup actionsRibbonPageGroup1;
         private DevExpress.XtraScheduler.UI.AppointmentRibbonPage appointmentRibbonPage1;
+        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerDataStorage1;
     }
 }
 

@@ -18,7 +18,20 @@ namespace MedicalPracticeSuite.Services
 
         public List<Appointment> GetAll()
         {
-            return context.Appointments.ToList();
-        }   
+            using (var context = new MedicalContext())
+            {
+                return context.Appointments
+                              .Include("Patient")
+                              .Include("Doctor")
+                              .AsNoTracking()
+                              .ToList();
+            }
+        }
+
+        public void Add(Appointment appointment)
+        {
+            context.Appointments.Add(appointment);
+            context.SaveChanges();
+        }
     }
 }

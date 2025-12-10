@@ -74,6 +74,11 @@
     <Compile Include="Data\Doctor.cs" />
     <Compile Include="Data\MedicalContext.cs" />
     <Compile Include="Data\Patient.cs" />
+    <Compile Include="MedicalPracticeSuiteDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalPracticeSuiteDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\PatientService.cs" />
@@ -142,6 +147,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="MedicalPracticeSuiteDBDataSet.xsc">
+      <DependentUpon>MedicalPracticeSuiteDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalPracticeSuiteDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalPracticeSuiteDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalPracticeSuiteDBDataSet.xss">
+      <DependentUpon>MedicalPracticeSuiteDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
