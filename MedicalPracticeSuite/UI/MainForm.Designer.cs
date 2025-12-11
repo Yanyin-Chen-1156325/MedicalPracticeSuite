@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler7 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler8 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler9 = new DevExpress.XtraScheduler.TimeRuler();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -63,6 +63,8 @@
             this.toggleRecurrenceItem1 = new DevExpress.XtraScheduler.UI.ToggleRecurrenceItem();
             this.changeAppointmentReminderItem1 = new DevExpress.XtraScheduler.UI.ChangeAppointmentReminderItem();
             this.repositoryItemDuration1 = new DevExpress.XtraScheduler.UI.RepositoryItemDuration();
+            this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemSearchControl3 = new DevExpress.XtraEditors.Repository.RepositoryItemSearchControl();
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
@@ -96,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -135,10 +138,11 @@
             this.changeAppointmentStatusItem1,
             this.changeAppointmentLabelItem1,
             this.toggleRecurrenceItem1,
-            this.changeAppointmentReminderItem1});
+            this.changeAppointmentReminderItem1,
+            this.barEditItem3});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(14);
-            this.ribbonControl1.MaxItemId = 31;
+            this.ribbonControl1.MaxItemId = 32;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 1669;
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
@@ -151,9 +155,10 @@
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemSearchControl1,
             this.repositoryItemSearchControl2,
-            this.repositoryItemDuration1});
+            this.repositoryItemDuration1,
+            this.repositoryItemSearchControl3});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.Size = new System.Drawing.Size(1029, 127);
+            this.ribbonControl1.Size = new System.Drawing.Size(1418, 127);
             this.ribbonControl1.SelectedPageChanged += new System.EventHandler(this.ribbonControl1_SelectedPageChanged);
             // 
             // barButtonItem1
@@ -226,6 +231,7 @@
             this.barButtonItem9.Id = 10;
             this.barButtonItem9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem9.ImageOptions.SvgImage")));
             this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
             // 
             // barButtonItem10
             // 
@@ -233,6 +239,7 @@
             this.barButtonItem10.Id = 11;
             this.barButtonItem10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem10.ImageOptions.SvgImage")));
             this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
             // 
             // barButtonItem11
             // 
@@ -240,6 +247,7 @@
             this.barButtonItem11.Id = 12;
             this.barButtonItem11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem11.ImageOptions.SvgImage")));
             this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
             // 
             // barButtonItem12
             // 
@@ -247,6 +255,7 @@
             this.barButtonItem12.Id = 13;
             this.barButtonItem12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem12.ImageOptions.SvgImage")));
             this.barButtonItem12.Name = "barButtonItem12";
+            this.barButtonItem12.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem12_ItemClick);
             // 
             // barButtonItem15
             // 
@@ -363,6 +372,22 @@
             this.repositoryItemDuration1.ShowEmptyItem = true;
             this.repositoryItemDuration1.ValidateOnEnterKey = true;
             // 
+            // barEditItem3
+            // 
+            this.barEditItem3.Caption = "Search";
+            this.barEditItem3.Edit = this.repositoryItemSearchControl3;
+            this.barEditItem3.Id = 31;
+            this.barEditItem3.Name = "barEditItem3";
+            this.barEditItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem3_ItemClick);
+            // 
+            // repositoryItemSearchControl3
+            // 
+            this.repositoryItemSearchControl3.AutoHeight = false;
+            this.repositoryItemSearchControl3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Repository.ClearButton(),
+            new DevExpress.XtraEditors.Repository.SearchButton()});
+            this.repositoryItemSearchControl3.Name = "repositoryItemSearchControl3";
+            // 
             // calendarToolsRibbonPageCategory1
             // 
             this.calendarToolsRibbonPageCategory1.Control = this.schedulerControl1;
@@ -376,15 +401,15 @@
             this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
             this.schedulerControl1.MenuManager = this.ribbonControl1;
             this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(688, 482);
+            this.schedulerControl1.Size = new System.Drawing.Size(1071, 482);
             this.schedulerControl1.Start = new System.DateTime(2025, 11, 28, 0, 0, 0, 0);
             this.schedulerControl1.TabIndex = 2;
             this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler4);
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler7);
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler8);
             this.schedulerControl1.Views.WeekView.Enabled = false;
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler9);
             this.schedulerControl1.Views.YearView.UseOptimizedScrolling = false;
             // 
             // schedulerDataStorage1
@@ -534,7 +559,7 @@
             // 
             // ribbonPageGroup16
             // 
-            this.ribbonPageGroup16.ItemLinks.Add(this.barButtonItem15);
+            this.ribbonPageGroup16.ItemLinks.Add(this.barEditItem3);
             this.ribbonPageGroup16.Name = "ribbonPageGroup16";
             // 
             // mainPanel
@@ -544,7 +569,7 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 127);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1029, 482);
+            this.mainPanel.Size = new System.Drawing.Size(1418, 482);
             this.mainPanel.TabIndex = 5;
             // 
             // dateNavigator1
@@ -557,7 +582,7 @@
             this.dateNavigator1.Dock = System.Windows.Forms.DockStyle.Right;
             this.dateNavigator1.EditValue = new System.DateTime(2025, 11, 28, 0, 0, 0, 0);
             this.dateNavigator1.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.dateNavigator1.Location = new System.Drawing.Point(683, 0);
+            this.dateNavigator1.Location = new System.Drawing.Point(1072, 0);
             this.dateNavigator1.Margin = new System.Windows.Forms.Padding(6);
             this.dateNavigator1.Name = "dateNavigator1";
             this.dateNavigator1.Padding = new System.Windows.Forms.Padding(0);
@@ -604,7 +629,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 609);
+            this.ClientSize = new System.Drawing.Size(1418, 609);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "MainForm";
@@ -614,6 +639,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             this.mainPanel.ResumeLayout(false);
@@ -686,6 +712,8 @@
         private DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup actionsRibbonPageGroup1;
         private DevExpress.XtraScheduler.UI.AppointmentRibbonPage appointmentRibbonPage1;
         private DevExpress.XtraScheduler.SchedulerDataStorage schedulerDataStorage1;
+        private DevExpress.XtraBars.BarEditItem barEditItem3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSearchControl repositoryItemSearchControl3;
     }
 }
 

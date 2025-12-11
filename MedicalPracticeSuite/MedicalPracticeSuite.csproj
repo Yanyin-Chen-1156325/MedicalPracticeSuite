@@ -82,6 +82,12 @@
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\PatientService.cs" />
+    <Compile Include="UI\AppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AppointmentForm.Designer.cs">
+      <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\AppointmentsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\AppointmentForm.resx">
+      <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AppointmentsControl.resx">
       <DependentUpon>AppointmentsControl.cs</DependentUpon>
     </EmbeddedResource>

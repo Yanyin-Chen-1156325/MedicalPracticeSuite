@@ -1,6 +1,7 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraScheduler;
+using DevExpress.XtraScheduler.UI;
 using MedicalPracticeSuite.Data;
 using MedicalPracticeSuite.Services;
 using MedicalPracticeSuite.UI;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AppointmentForm = MedicalPracticeSuite.UI.AppointmentForm;
 
 namespace MedicalPracticeSuite
 {
@@ -293,6 +295,108 @@ namespace MedicalPracticeSuite
             ExecuteSearch();
         }
         #endregion
+        #region Appointments Ribbon Events
+        /// <summary>
+        /// Appointment Add New
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            using (var form = new AppointmentForm("add"))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    appointmentsControl.LoadAppointmentData();
+                }
+            }
+        }
+        /// <summary>
+        /// Appointment Edit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var selectedRows = appointmentsControl.GetSelectedAppointmentRows();
+
+            if (selectedRows.Length == 1)
+            {
+                int rowHandle = selectedRows[0];
+                var appointment = appointmentsControl.GetAppointmentByRowHandle(rowHandle);
+                using (var form = new AppointmentForm("edit", appointment))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        appointmentsControl.LoadAppointmentData();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single appointment to edit.", "Edit Appointment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        /// <summary>
+        /// Appointment Delete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var selectedRows = appointmentsControl.GetSelectedAppointmentRows();
+
+            if (selectedRows.Length == 1)
+            {
+                int rowHandle = selectedRows[0];
+                var appointment = appointmentsControl.GetAppointmentByRowHandle(rowHandle);
+                if (appointment == null)
+                    return;
+                var result = MessageBox.Show(
+                    $"Are you sure you want to delete appointment '{appointment.Id}'?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var appointmentService = new AppointmentService();
+                        appointmentService.Remove(appointment.Id);
+
+                        appointmentsControl.LoadAppointmentData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to delete appointment: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a single appointment to delete.", "Delete Appointment", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        /// <summary>
+        /// Appointment Refresh
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            appointmentsControl.LoadAppointmentData();
+        }
+        /// <summary>
+        /// Appointment Search
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barEditItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ExecuteSearch();
+        }
+        #endregion
         #region Gerneral
         /// <summary>
         /// Search Execution
@@ -321,6 +425,18 @@ namespace MedicalPracticeSuite
                 else
                 {
                     doctorsControl.LoadDoctorData();
+                }
+            }
+            else if (ribbonControl1.SelectedPage.Text == "Appointments")
+            {
+                if (this.barEditItem3 != null)
+                {
+                    string searchTerm = this.barEditItem3.EditValue?.ToString();
+                    appointmentsControl.LoadAppointmentData(searchTerm);
+                }
+                else
+                {
+                    appointmentsControl.LoadAppointmentData();
                 }
             }
         }
@@ -355,6 +471,11 @@ namespace MedicalPracticeSuite
             // MyCustomAppointmentForm customForm = new MyCustomAppointmentForm(schedulerControl1, e.Appointment);
             // customForm.ShowDialog();
         }
+
+
+
         #endregion
+
+        
     }
 }
