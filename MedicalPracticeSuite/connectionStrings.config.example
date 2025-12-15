@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<connectionStrings>
+  <!-- Copy this file to 'connectionStrings.config' and fill in your real values. -->
+  <add name="MedicalDB" connectionString="Server=YOUR_SERVER;Database=YOUR_DB;Trusted_Connection=True;" providerName="System.Data.SqlClient" />
+</connectionStrings>
