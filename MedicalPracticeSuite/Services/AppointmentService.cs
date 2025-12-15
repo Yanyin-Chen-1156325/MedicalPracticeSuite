@@ -1,6 +1,7 @@
 ﻿using MedicalPracticeSuite.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,5 +80,19 @@ namespace MedicalPracticeSuite.Services
                 throw new Exception("Appointment not found.");
             }
         }
+
+        public List<Appointment> GetByDoctorId(int doctorId)
+        {
+            using (var context = new MedicalContext())
+            {
+                return context.Appointments
+                              .Where(a => a.DoctorId == doctorId)
+                              .Include(a => a.Patient)
+                              .Include(a => a.Doctor)
+                              .AsNoTracking()
+                              .ToList();
+            }
+        }
+
     }
 }

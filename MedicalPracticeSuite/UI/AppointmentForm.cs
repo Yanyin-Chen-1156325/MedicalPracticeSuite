@@ -32,10 +32,12 @@ namespace MedicalPracticeSuite.UI
             if (_mode == "add")
             {
                 this.Text = "Add Appointment";
+                lblID.Visible = false;
             }
             else if (_mode == "edit")
             {
                 this.Text = "Edit Appointment";
+                lblID.Visible = true;
             }
         }
 
@@ -62,6 +64,7 @@ namespace MedicalPracticeSuite.UI
             luPatient.Properties.ValueMember = "Id";
             luPatient.Properties.NullText = "Select Patient";
 
+            dtEndTime.Value = dtStartTime.Value.AddMinutes(30);
             if (_mode == "edit" && _appointment != null)
             {
                 getEditAppointmentData(_appointment);
@@ -84,14 +87,6 @@ namespace MedicalPracticeSuite.UI
         /// <param name="e"></param>
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //Get ID
-            if (int.TryParse(lblAppointmentID.Text, out int appointmentId))
-            {
-            }
-            else
-            {
-                MessageBox.Show("Invalid appointment ID.");
-            }
             // Get raw EditValue
             var doctorObj = luDoctor.EditValue;
             var patientObj = luPatient.EditValue;
@@ -176,12 +171,20 @@ namespace MedicalPracticeSuite.UI
                 Notes = notes
             };
 
+            // Check for conflicts
+            if (HasConflict(appointment))
+            {
+                MessageBox.Show("This doctor already has an appointment in the selected time range. Please choose a different time.");
+                return;
+            }
+
             if (_mode == "add")
             {
                 _appointmentService.Add(appointment);
             }
             else if (_mode == "edit")
             {
+                int.TryParse(lblAppointmentID.Text, out int appointmentId);
                 appointment.Id = appointmentId;
                 _appointmentService.Update(appointment);
             }
@@ -206,5 +209,23 @@ namespace MedicalPracticeSuite.UI
             // Set Notes
             txtNotes.Text = appointment.Notes ?? string.Empty;
         }
+
+        private bool HasConflict(Appointment newAppointment)
+        {
+            var doctorAppointments = _appointmentService.GetByDoctorId(newAppointment.DoctorId);
+
+            foreach (var appt in doctorAppointments)
+            {
+                if (_mode == "edit" && appt.Id == newAppointment.Id)
+                    continue;
+
+                bool overlap = newAppointment.StartTime < appt.EndTime &&
+                               newAppointment.EndTime > appt.StartTime;
+                if (overlap)
+                    return true;
+            }
+            return false;
+        }
+
     }
 }

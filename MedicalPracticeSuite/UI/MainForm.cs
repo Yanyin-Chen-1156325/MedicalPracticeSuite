@@ -392,7 +392,7 @@ namespace MedicalPracticeSuite
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void barEditItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barEditItem3_EditValueChanged(object sender, EventArgs e)
         {
             ExecuteSearch();
         }
@@ -452,8 +452,12 @@ namespace MedicalPracticeSuite
                 schedAppt.Subject = $"{appt.Patient.Name} with {appt.Doctor.Name}";
                 schedAppt.Start = appt.StartTime;
                 schedAppt.End = appt.EndTime;
-                schedAppt.CustomFields["Notes"] = appt.Notes;
                 schedAppt.Description = appt.Notes;
+                schedAppt.CustomFields["AppointmentId"] = appt.Id;
+                schedAppt.CustomFields["DoctorID"] = appt.Doctor.Id;
+                schedAppt.CustomFields["DoctorName"] = appt.Doctor.Name;
+                schedAppt.CustomFields["PatientID"] = appt.Patient.Id;
+                schedAppt.CustomFields["PatientName"] = appt.Patient.Name;
 
                 schedulerDataStorage1.Appointments.Add(schedAppt);
             }
@@ -466,14 +470,38 @@ namespace MedicalPracticeSuite
         private void SchedulerControl1_EditAppointmentFormShowing(object sender, DevExpress.XtraScheduler.AppointmentFormEventArgs e)
         {
             e.Handled = true;
+            if (e.Appointment.Subject != "")
+            {
+                var app = new MedicalPracticeSuite.Data.Appointment
+                {
+                    Id = Convert.ToInt32(e.Appointment.CustomFields["AppointmentId"]),
+                    DoctorId = Convert.ToInt32(e.Appointment.CustomFields["DoctorID"]),
+                    PatientId = Convert.ToInt32(e.Appointment.CustomFields["PatientID"]),
+                    StartTime = e.Appointment.Start,
+                    EndTime = e.Appointment.End,
+                    Notes = e.Appointment.Description,
+                };
 
-            // 之後才是您客製化表單的邏輯：
-            // MyCustomAppointmentForm customForm = new MyCustomAppointmentForm(schedulerControl1, e.Appointment);
-            // customForm.ShowDialog();
+                using (var form = new AppointmentForm("edit", app))
+                {
+
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        appointmentsControl.LoadAppointmentData();
+                    }
+                }
+            }
+            else
+            {
+                using (var form = new AppointmentForm("add"))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        appointmentsControl.LoadAppointmentData();
+                    }
+                }
+            }
         }
-
-
-
         #endregion
 
         

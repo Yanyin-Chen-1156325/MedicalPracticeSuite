@@ -39,7 +39,7 @@
             this.luPatient = new DevExpress.XtraEditors.LookUpEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.lblID = new DevExpress.XtraEditors.LabelControl();
             this.lblAppointmentID = new DevExpress.XtraEditors.LabelControl();
             this.dtStartTime = new System.Windows.Forms.DateTimePicker();
             this.dtEndTime = new System.Windows.Forms.DateTimePicker();
@@ -159,16 +159,16 @@
             this.simpleButton1.Text = "Save";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // labelControl6
+            // lblID
             // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(13, 4);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(28, 24);
-            this.labelControl6.TabIndex = 14;
-            this.labelControl6.Text = "ID:";
+            this.lblID.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Appearance.Options.UseFont = true;
+            this.lblID.Location = new System.Drawing.Point(13, 4);
+            this.lblID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(28, 24);
+            this.lblID.TabIndex = 14;
+            this.lblID.Text = "ID:";
             // 
             // lblAppointmentID
             // 
@@ -182,7 +182,9 @@
             // dtStartTime
             // 
             this.dtStartTime.CalendarMonthBackground = System.Drawing.SystemColors.WindowFrame;
+            this.dtStartTime.CustomFormat = "dd-MM-yyyy HH:mm";
             this.dtStartTime.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtStartTime.Location = new System.Drawing.Point(14, 231);
             this.dtStartTime.Name = "dtStartTime";
             this.dtStartTime.Size = new System.Drawing.Size(470, 32);
@@ -191,7 +193,9 @@
             // dtEndTime
             // 
             this.dtEndTime.CalendarMonthBackground = System.Drawing.SystemColors.WindowFrame;
+            this.dtEndTime.CustomFormat = "dd-MM-yyyy HH:mm";
             this.dtEndTime.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtEndTime.Location = new System.Drawing.Point(14, 326);
             this.dtEndTime.Name = "dtEndTime";
             this.dtEndTime.Size = new System.Drawing.Size(470, 32);
@@ -205,7 +209,7 @@
             this.Controls.Add(this.dtEndTime);
             this.Controls.Add(this.dtStartTime);
             this.Controls.Add(this.lblAppointmentID);
-            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.luPatient);
@@ -240,7 +244,7 @@
         private DevExpress.XtraEditors.LookUpEdit luPatient;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl lblID;
         private DevExpress.XtraEditors.LabelControl lblAppointmentID;
         private System.Windows.Forms.DateTimePicker dtStartTime;
         private System.Windows.Forms.DateTimePicker dtEndTime;
